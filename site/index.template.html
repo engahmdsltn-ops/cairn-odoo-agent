@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cairn · Every stone has a source</title>
+<meta name="description" content="Cairn is a source-first agent for building Odoo. It learns only from the source code you give it and shows the file and line behind every answer.">
+<meta name="theme-color" content="#12161A">
+<meta property="og:title" content="Cairn · Every stone has a source">
+<meta property="og:description" content="A source-first agent for building Odoo.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%20140%22%3E%3Cellipse%20cx%3D%2260%22%20cy%3D%22114%22%20rx%3D%2244%22%20ry%3D%2220%22%20fill%3D%22%237E878E%22%20transform%3D%22rotate%28-3%2060%20114%29%22/%3E%3Cellipse%20cx%3D%2258%22%20cy%3D%2275%22%20rx%3D%2232%22%20ry%3D%2216%22%20fill%3D%22%23A3ABB1%22%20transform%3D%22rotate%282%2058%2075%29%22/%3E%3Cellipse%20cx%3D%2262%22%20cy%3D%2245%22%20rx%3D%2220%22%20ry%3D%2212%22%20fill%3D%22%23CDD3D7%22%20transform%3D%22rotate%28-4%2062%2045%29%22/%3E%3Cellipse%20cx%3D%2260%22%20cy%3D%2224%22%20rx%3D%229%22%20ry%3D%227%22%20fill%3D%22%23E8A93A%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+html { background: #12161A; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: #12161A; color: #E6E9EB; }
+* { box-sizing: border-box; }
+a { color: #AEB5BA; text-decoration: none; }
+a:hover { color: #E6E9EB; }
+a.btn-primary:hover { color: #12161A; filter: brightness(1.08); }
+a:focus-visible { outline: 2px solid #E8A93A; outline-offset: 3px; }
+section[id] { scroll-margin-top: 16px; }
+svg { max-width: 100%; }
+</style>
+</head>
+<body>
+
+
+<div style="background: #12161A; color: #E6E9EB; font-family: 'Space Grotesk', system-ui, sans-serif; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid #2A3136">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <svg width="28" height="33" viewBox="0 0 120 140" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="114" rx="44" ry="20" fill="#7E878E" transform="rotate(-3 60 114)"></ellipse>
+          <ellipse cx="58" cy="75" rx="32" ry="16" fill="#A3ABB1" transform="rotate(2 58 75)"></ellipse>
+          <ellipse cx="62" cy="45" rx="20" ry="12" fill="#CDD3D7" transform="rotate(-4 62 45)"></ellipse>
+          <ellipse cx="60" cy="24" rx="9" ry="7" fill="#E8A93A"></ellipse>
+        </svg>
+        <div style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em">Cairn</div>
+      </div>
+      <nav style="display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 15px">
+        <a href="#principles">Principles</a>
+        <a href="#how">How it works</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#commands">Commands</a>
+        <a href="{{REPO_URL}}">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <div style="max-width: 1120px; margin: 0 auto; padding: 80px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
+      <div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+        <div style="align-self: flex-start; display: flex; align-items: center; gap: 10px; border: 1px solid #3A4248; border-radius: 999px; padding: 6px 14px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #AEB5BA">
+          <span style="width: 8px; height: 8px; border-radius: 999px; background: #E8A93A"></span>
+          Design complete · implementation in progress
+        </div>
+        <h1 style="margin: 0; font-size: clamp(44px, 7.4vw, 80px); line-height: 1.02; font-weight: 700; letter-spacing: -0.035em; text-wrap: balance">Every stone has a <span style="color: #E8A93A">source</span>.</h1>
+        <p style="margin: 0; max-width: 560px; font-size: 21px; line-height: 1.5; color: #AEB5BA">Cairn is an agent for Odoo development. It learns only from the source code you give it, and shows the file and line behind every answer.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <a class="btn-primary" href="#roadmap" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 8px; background: #E8A93A; color: #12161A; font-weight: 700; font-size: 16px">Read the roadmap</a>
+          <a href="#how" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 8px; border: 1px solid #3A4248; color: #E6E9EB; font-weight: 500; font-size: 16px">See how it works</a>
+        </div>
+      </div>
+      <div style="flex: 1 1 280px; min-width: 0; display: flex; justify-content: center">
+        <svg width="320" height="373" viewBox="0 0 120 140" role="img" aria-label="Four stacked stones, the Cairn mark" style="max-width: 100%; height: auto" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="114" rx="44" ry="20" fill="#7E878E" transform="rotate(-3 60 114)"></ellipse>
+          <ellipse cx="58" cy="75" rx="32" ry="16" fill="#A3ABB1" transform="rotate(2 58 75)"></ellipse>
+          <ellipse cx="62" cy="45" rx="20" ry="12" fill="#CDD3D7" transform="rotate(-4 62 45)"></ellipse>
+          <ellipse cx="60" cy="24" rx="9" ry="7" fill="#E8A93A"></ellipse>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top: 1px solid #2A3136">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px; display: flex; flex-direction: column; gap: 40px">
+      <h2 style="margin: 0; max-width: 760px; font-size: clamp(32px, 4.6vw, 48px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; text-wrap: balance">Confident answers, wrong version.</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px">
+        <div style="flex: 1 1 260px; min-width: 0; border-top: 1px solid #3A4248; padding-top: 18px; display: flex; flex-direction: column; gap: 8px">
+          <div style="font-size: 20px; font-weight: 700">APIs move between versions</div>
+          <div style="font-size: 16px; color: #AEB5BA">A renamed method or a moved field reads fine until it fails in a running system.</div>
+        </div>
+        <div style="flex: 1 1 260px; min-width: 0; border-top: 1px solid #3A4248; padding-top: 18px; display: flex; flex-direction: column; gap: 8px">
+          <div style="font-size: 20px; font-weight: 700">One version still drifts</div>
+          <div style="font-size: 16px; color: #AEB5BA">A checkout from early in the year and one from the end of it are not the same code.</div>
+        </div>
+        <div style="flex: 1 1 260px; min-width: 0; border-top: 1px solid #3A4248; padding-top: 18px; display: flex; flex-direction: column; gap: 8px">
+          <div style="font-size: 20px; font-weight: 700">Guesses look like facts</div>
+          <div style="font-size: 16px; color: #AEB5BA">An assistant that cannot show its source cannot be audited, so every claim needs a place to check it.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="principles" style="border-top: 1px solid #2A3136">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 56px">
+      <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3A9">Principles</div>
+        <h2 style="margin: 0; font-size: clamp(32px, 4.6vw, 48px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; text-wrap: balance">An answer you can check.</h2>
+        <p style="margin: 0; font-size: 18px; color: #AEB5BA">Every answer carries one of three labels, so you always know how much weight it can bear.</p>
+        <div style="background: #0C0F12; border: 1px solid #2A3136; border-radius: 12px; padding: 22px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.7; overflow-x: auto">
+          <div style="color: #9AA3A9">/ask &lt;your question&gt;</div>
+          <div style="margin-top: 10px"><span style="color: #8FD6A8">verified</span> <span style="color: #9AA3A9">@&lt;snapshot&gt;</span> &lt;addon&gt;/models/&lt;file&gt;.py:&lt;line&gt;</div>
+          <div><span style="color: #E8A93A">inferred</span> <span style="color: #9AA3A9">basis:</span> what the reasoning rests on</div>
+          <div><span style="color: #E58B7B">unverified</span> <span style="color: #9AA3A9">needs:</span> the file or module still to read</div>
+          <div style="margin-top: 10px; color: #9AA3A9; font-size: 12px">Illustrative format. Placeholders in angle brackets.</div>
+        </div>
+      </div>
+      <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+        <div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #3A4248; padding-top: 16px">
+          <div style="font-size: 20px; font-weight: 700">Cited</div>
+          <div style="font-size: 16px; color: #AEB5BA">Every stored fact carries a file, a line, the Odoo version, a snapshot id and a file hash. No source, no fact.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #3A4248; padding-top: 16px">
+          <div style="font-size: 20px; font-weight: 700">Versioned</div>
+          <div style="font-size: 16px; color: #AEB5BA">Knowledge is kept per Odoo version and per source snapshot. Snapshots are immutable, and a refresh adds a new one.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #3A4248; padding-top: 16px">
+          <div style="font-size: 20px; font-weight: 700">Isolated</div>
+          <div style="font-size: 16px; color: #AEB5BA">Each project keeps its own memory, skills, specs, tests and containers. Nothing moves into the core unless you promote it.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #3A4248; padding-top: 16px">
+          <div style="font-size: 20px; font-weight: 700">Consented</div>
+          <div style="font-size: 16px; color: #AEB5BA">New skills, imports and rollbacks are proposals first. Cairn grows only when you say yes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="border-top: 1px solid #2A3136">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px; display: flex; flex-direction: column; gap: 40px">
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3A9">How it works</div>
+        <h2 style="margin: 0; max-width: 760px; font-size: clamp(32px, 4.6vw, 48px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; text-wrap: balance">Index first. Source on a miss.</h2>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px">
+        <div style="flex: 1 1 200px; min-width: 0; background: #1B2126; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 8px">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #E8A93A">Ask</div>
+          <div style="font-size: 16px; color: #C5CBCF">You ask a question about a version of Odoo.</div>
+        </div>
+        <div style="flex: 1 1 200px; min-width: 0; background: #1B2126; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 8px">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #E8A93A">Look up</div>
+          <div style="font-size: 16px; color: #C5CBCF">Cairn queries the index for the pinned snapshot. A hit is answered with its file and line.</div>
+        </div>
+        <div style="flex: 1 1 200px; min-width: 0; background: #1B2126; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 8px">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #E8A93A">Read</div>
+          <div style="font-size: 16px; color: #C5CBCF">On a miss it reads the relevant source files and records every file it touched.</div>
+        </div>
+        <div style="flex: 1 1 200px; min-width: 0; background: #1B2126; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 8px">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #E8A93A">Remember</div>
+          <div style="font-size: 16px; color: #C5CBCF">It answers, then adds what it learned to the index, with provenance.</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+        <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+          <div style="font-size: 20px; font-weight: 700">A read tracker, not a black box</div>
+          <div style="font-size: 16px; color: #AEB5BA">Each source file is marked unread, indexed, read or skipped, with how deeply it was understood. Coverage per addon shows what Cairn knows and what remains.</div>
+        </div>
+        <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+          <div style="font-size: 20px; font-weight: 700">Snapshots that do not overwrite</div>
+          <div style="font-size: 16px; color: #AEB5BA">When the source of the same version changes, Cairn creates a new snapshot and re-reads only the files that changed. Projects stay pinned to the snapshot they were built on.</div>
+        </div>
+        <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+          <div style="font-size: 20px; font-weight: 700">Two layers</div>
+          <div style="font-size: 16px; color: #AEB5BA">The core holds knowledge per version. A project reads it and never writes to it. Anything reusable moves up only through an approved promotion.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="capabilities" style="border-top: 1px solid #2A3136">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px; display: flex; flex-direction: column; gap: 40px">
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3A9">Planned capabilities</div>
+        <h2 style="margin: 0; max-width: 760px; font-size: clamp(32px, 4.6vw, 48px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; text-wrap: balance">From source to shipped module.</h2>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <div style="flex: 1 1 320px; min-width: 0; background: #1B2126; border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+          <div style="font-size: 20px; font-weight: 700">Knowledge</div>
+          <div style="font-size: 16px; color: #AEB5BA">Scripted structural indexing of Odoo source, immutable snapshots with shared objects, coverage tracking, and refresh for new source of the same version.</div>
+        </div>
+        <div style="flex: 1 1 320px; min-width: 0; background: #1B2126; border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+          <div style="font-size: 20px; font-weight: 700">Building</div>
+          <div style="font-size: 16px; color: #AEB5BA">Module scaffolding, customization, front-end work (views, OWL, QWeb) and porting addons from one Odoo version to another.</div>
+        </div>
+        <div style="flex: 1 1 320px; min-width: 0; background: #1B2126; border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+          <div style="font-size: 20px; font-weight: 700">Running</div>
+          <div style="font-size: 16px; color: #AEB5BA">Dev-container control, module install and upgrade, and a debug loop that traces errors back to the source. Development environments only.</div>
+        </div>
+        <div style="flex: 1 1 320px; min-width: 0; background: #1B2126; border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+          <div style="font-size: 20px; font-weight: 700">Quality</div>
+          <div style="font-size: 16px; color: #AEB5BA">Odoo conventions and clean code, Big-O and query-count analysis for non-trivial solutions, and a quality gate aligned with ISO/IEC 25010. Aligned with, not certified.</div>
+        </div>
+        <div style="flex: 1 1 320px; min-width: 0; background: #1B2126; border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+          <div style="font-size: 20px; font-weight: 700">Process</div>
+          <div style="font-size: 16px; color: #AEB5BA">A functional knowledge layer, discovery and fit-gap, and spec-driven development with a method you plug in.</div>
+        </div>
+        <div style="flex: 1 1 320px; min-width: 0; background: #1B2126; border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+          <div style="font-size: 20px; font-weight: 700">Governance</div>
+          <div style="font-size: 16px; color: #AEB5BA">A consent gate for skills, quarantined imports, export with a checklist, and a versioned agent you can roll back.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap" style="border-top: 1px solid #2A3136">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 56px">
+      <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3A9">Roadmap</div>
+        <h2 style="margin: 0; font-size: clamp(32px, 4.6vw, 48px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; text-wrap: balance">One stone at a time.</h2>
+        <p style="margin: 0; font-size: 18px; color: #AEB5BA">Each milestone ends with passing tests and a review before the next one starts. A milestone is marked done only when it is merged and tested.</p>
+      </div>
+      <div style="flex: 2 1 480px; min-width: 0; display: flex; flex-direction: column">
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding: 16px 0; border-top: 1px solid #3A4248">
+          <div style="width: 40px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #E8A93A">M0</div>
+          <div style="flex: 1 1 260px; min-width: 0"><span style="font-weight: 700">Scaffold and guardrails</span><span style="color: #9AA3A9"> · rules, permissions, hooks, tooling skeleton</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3A9">Not started</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding: 16px 0; border-top: 1px solid #2A3136">
+          <div style="width: 40px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #E8A93A">M1</div>
+          <div style="flex: 1 1 260px; min-width: 0"><span style="font-weight: 700">Knowledge engine</span><span style="color: #9AA3A9"> · snapshots, indexer, query, verify, coverage</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3A9">Not started</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding: 16px 0; border-top: 1px solid #2A3136">
+          <div style="width: 40px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #E8A93A">M2</div>
+          <div style="flex: 1 1 260px; min-width: 0"><span style="font-weight: 700">Agent versioning</span><span style="color: #9AA3A9"> · checkpoints and granular rollback</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3A9">Not started</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding: 16px 0; border-top: 1px solid #2A3136">
+          <div style="width: 40px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #E8A93A">M3</div>
+          <div style="flex: 1 1 260px; min-width: 0"><span style="font-weight: 700">Skill governance and manual</span><span style="color: #9AA3A9"> · consent gate, generated manual</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3A9">Not started</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding: 16px 0; border-top: 1px solid #2A3136">
+          <div style="width: 40px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #E8A93A">M4</div>
+          <div style="flex: 1 1 260px; min-width: 0"><span style="font-weight: 700">Portability</span><span style="color: #9AA3A9"> · export, quarantined import, promotion</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3A9">Not started</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding: 16px 0; border-top: 1px solid #2A3136">
+          <div style="width: 40px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #E8A93A">M5</div>
+          <div style="flex: 1 1 260px; min-width: 0"><span style="font-weight: 700">Projects and runtime</span><span style="color: #9AA3A9"> · bootstrap, compose, containers, debug loop, git</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3A9">Not started</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding: 16px 0; border-top: 1px solid #2A3136">
+          <div style="width: 40px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #E8A93A">M6</div>
+          <div style="flex: 1 1 260px; min-width: 0"><span style="font-weight: 700">Build skills and quality</span><span style="color: #9AA3A9"> · scaffolding, migration, tests, quality gate, performance</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3A9">Not started</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding: 16px 0; border-top: 1px solid #2A3136">
+          <div style="width: 40px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #E8A93A">M7</div>
+          <div style="flex: 1 1 260px; min-width: 0"><span style="font-weight: 700">Functional layer and spec slot</span><span style="color: #9AA3A9"> · functional packs, fit-gap, spec placeholder</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3A9">Not started</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding: 16px 0; border-top: 1px solid #2A3136">
+          <div style="width: 40px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #E8A93A">M8</div>
+          <div style="flex: 1 1 260px; min-width: 0"><span style="font-weight: 700">Hardening</span><span style="color: #9AA3A9"> · manual, consistency checks, threat-model review</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3A9">Not started</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding: 16px 0; border-top: 1px solid #2A3136; border-bottom: 1px solid #2A3136">
+          <div style="width: 40px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #E8A93A">M9</div>
+          <div style="flex: 1 1 260px; min-width: 0"><span style="font-weight: 700">Publish readiness</span><span style="color: #9AA3A9"> · allowlist export and pre-publish audit</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9AA3A9">Not started</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="commands" style="border-top: 1px solid #2A3136">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px; display: flex; flex-direction: column; gap: 40px">
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3A9">Planned commands</div>
+        <h2 style="margin: 0; max-width: 760px; font-size: clamp(32px, 4.6vw, 48px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; text-wrap: balance">Short commands, plain English works too.</h2>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px 40px; font-family: 'JetBrains Mono', monospace; font-size: 15px">
+        <div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+          <div style="color: #E8A93A; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">Knowledge</div>
+          <div>/ask</div><div>/index</div><div>/learn</div><div>/coverage</div><div>/refresh</div><div>/verify</div>
+        </div>
+        <div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+          <div style="color: #E8A93A; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">Projects and build</div>
+          <div>/project new</div><div>/new-module</div><div>/customize</div><div>/frontend</div><div>/migrate</div><div>/spec</div>
+        </div>
+        <div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+          <div style="color: #E8A93A; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">Run and test</div>
+          <div>/up</div><div>/restart</div><div>/install</div><div>/upgrade</div><div>/debug</div><div>/test</div>
+        </div>
+        <div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+          <div style="color: #E8A93A; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">Quality</div>
+          <div>/quality</div><div>/complexity</div><div>/perf</div><div>/review</div><div>/security</div><div>/eval</div>
+        </div>
+        <div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+          <div style="color: #E8A93A; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">The agent itself</div>
+          <div>/skill-add</div><div>/promote</div><div>/export</div><div>/import</div><div>/agent rollback</div><div>/doctor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top: 1px solid #2A3136">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 56px">
+      <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3A9">Boundaries</div>
+        <h2 style="margin: 0; font-size: clamp(32px, 4.6vw, 48px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; text-wrap: balance">What Cairn will not do.</h2>
+      </div>
+      <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px; font-size: 17px; color: #AEB5BA">
+        <div style="border-top: 1px solid #3A4248; padding-top: 16px">It does not ship Odoo source, or any knowledge index derived from it. You provide the source and Cairn builds its knowledge locally.</div>
+        <div style="border-top: 1px solid #3A4248; padding-top: 16px">It does not touch production. Container and database actions apply only to development containers declared in a project.</div>
+        <div style="border-top: 1px solid #3A4248; padding-top: 16px">Its safeguards are guardrails, not a sandbox. Run it on a development machine with no production credentials.</div>
+        <div style="border-top: 1px solid #3A4248; padding-top: 16px">Its answers are only as good as the source and index it has. Low coverage means more answers marked unverified.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="author" style="border-top: 1px solid #2A3136">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 72px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
+      <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA3A9">Author</div>
+        <div style="font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Designed and built by {{AUTHOR_NAME}}.</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a class="btn-primary" href="{{PORTFOLIO_URL}}" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 8px; background: #E8A93A; color: #12161A; font-weight: 700; font-size: 16px">See my portfolio</a>
+        <a href="{{REPO_URL}}" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 8px; border: 1px solid #3A4248; color: #E6E9EB; font-weight: 500; font-size: 16px">View the repository</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid #2A3136; background: #0C0F12">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <svg width="24" height="28" viewBox="0 0 120 140" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="114" rx="44" ry="20" fill="#7E878E" transform="rotate(-3 60 114)"></ellipse>
+          <ellipse cx="58" cy="75" rx="32" ry="16" fill="#A3ABB1" transform="rotate(2 58 75)"></ellipse>
+          <ellipse cx="62" cy="45" rx="20" ry="12" fill="#CDD3D7" transform="rotate(-4 62 45)"></ellipse>
+          <ellipse cx="60" cy="24" rx="9" ry="7" fill="#E8A93A"></ellipse>
+        </svg>
+        <div style="font-size: 16px; font-weight: 700">Cairn · Every stone has a source.</div>
+      </div>
+      <div style="flex: 1 1 360px; min-width: 0; max-width: 560px; font-size: 13px; line-height: 1.6; color: #9AA3A9">Cairn is an independent project. It is not affiliated with, endorsed by, or sponsored by Odoo S.A. Odoo is a trademark of its owner. Released under the MIT license.</div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

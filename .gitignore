@@ -1,0 +1,25 @@
+# Safety net for the PUBLIC repo. The real protection is the allowlist export.
+# Never publish any of these.
+.env
+.env.*
+*.pem
+*.key
+
+# Working data of a Cairn installation
+memory/
+external/
+proposals/
+lessons/
+portfolio/
+exports/
+projects.yaml
+config.yaml
+**/.cairn/
+*.zip
+
+# Tooling noise
+__pycache__/
+.pytest_cache/
+.venv/
+node_modules/
+.DS_Store
